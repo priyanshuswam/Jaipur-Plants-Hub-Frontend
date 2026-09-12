@@ -29,10 +29,6 @@ export default function OrderDetailPage() {
     staleTime: 30 * 1000,
   });
 
-  if (!id) return <PageLoader />;
-
-  const order = data?.order;
-
   const cancelMutation = useMutation({
     mutationFn: () => orderService.cancel(id, cancelReason),
     onSuccess: () => {
@@ -42,6 +38,11 @@ export default function OrderDetailPage() {
     },
     onError: (e: any) => toast.error(e?.response?.data?.message || 'Failed to cancel order'),
   });
+
+  // Early returns after all hooks
+  if (!id) return <PageLoader />;
+
+  const order = data?.order;
 
   if (isLoading) return <PageLoader />;
   if (!order) return <div className="text-center py-20"><p className="text-gray-400">Order not found</p></div>;
