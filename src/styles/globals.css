@@ -1,0 +1,339 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   CSS Custom Properties – Design Tokens
+   ============================================================ */
+:root {
+  --primary: #2E7D32;
+  --primary-light: #4CAF50;
+  --primary-dark: #1B4332;
+  --accent: #8BC34A;
+  --background: #F8FFF5;
+  --surface: #ffffff;
+  --text-primary: #1a2e1c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --border: rgba(46, 125, 50, 0.15);
+  --radius: 0.75rem;
+  --shadow-soft: 0 2px 15px rgba(0,0,0,0.06);
+  --shadow-medium: 0 10px 40px rgba(0,0,0,0.10);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.10);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-blur: blur(20px);
+}
+
+.dark {
+  --primary: #4CAF50;
+  --primary-light: #81C784;
+  --primary-dark: #1B4332;
+  --background: #0a1a0b;
+  --surface: #111e12;
+  --text-primary: #f0fdf4;
+  --text-secondary: #a7f3d0;
+  --text-muted: #6ee7b7;
+  --border: rgba(76, 175, 80, 0.2);
+  --glass-bg: rgba(27, 67, 50, 0.15);
+  --glass-border: rgba(76, 175, 80, 0.15);
+}
+
+/* ============================================================
+   Base Reset & Typography
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-inter, 'Inter', system-ui, sans-serif);
+  line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f9f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #4CAF50;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2E7D32;
+}
+
+/* ============================================================
+   Selection
+   ============================================================ */
+::selection {
+  background: rgba(76, 175, 80, 0.25);
+  color: #1B4332;
+}
+
+/* ============================================================
+   Typography Classes
+   ============================================================ */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair, 'Playfair Display', serif);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ============================================================
+   Component Layer
+   ============================================================ */
+@layer components {
+
+  /* --- Glass Card --- */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+  }
+
+  .glass-card-white {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius);
+  }
+
+  /* --- Neumorphism Card --- */
+  .neu-card {
+    background: #f0f9f0;
+    border-radius: 16px;
+    box-shadow: 6px 6px 12px #c8e6c9, -6px -6px 12px #ffffff;
+  }
+
+  .neu-card-dark {
+    background: #1a2e1c;
+    border-radius: 16px;
+    box-shadow: 6px 6px 12px #0d1a0f, -6px -6px 12px #273d2a;
+  }
+
+  /* --- Buttons --- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-800 to-primary-600 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-green-lg hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary-800 font-semibold rounded-full border-2 border-primary-800 transition-all duration-300 hover:bg-primary-800 hover:text-white hover:shadow-green active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-primary-700 font-medium rounded-full transition-all duration-300 hover:bg-primary-50 active:scale-95;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-full shadow-soft transition-all duration-300 hover:bg-accent-dark hover:shadow-green active:scale-95;
+  }
+
+  .btn-icon {
+    @apply flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95;
+  }
+
+  /* --- Input --- */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder:text-gray-400 transition-all duration-300 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100;
+  }
+
+  .input-field-dark {
+    @apply w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder:text-white/40 transition-all duration-300 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-900;
+  }
+
+  /* --- Cards --- */
+  .card-product {
+    @apply relative bg-white rounded-2xl overflow-hidden shadow-soft transition-all duration-300 hover:shadow-soft-xl hover:-translate-y-1;
+  }
+
+  .card-blog {
+    @apply bg-white rounded-2xl overflow-hidden shadow-soft transition-all duration-400 hover:shadow-soft-lg hover:-translate-y-0.5;
+  }
+
+  /* --- Section Headings --- */
+  .section-tag {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold tracking-wide uppercase mb-4;
+  }
+
+  .section-heading {
+    @apply font-display text-4xl lg:text-5xl font-bold text-gray-900 leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg text-gray-500 max-w-2xl;
+  }
+
+  /* --- Badge --- */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-green {
+    @apply badge bg-primary-100 text-primary-800;
+  }
+  .badge-orange {
+    @apply badge bg-orange-100 text-orange-700;
+  }
+  .badge-red {
+    @apply badge bg-red-100 text-red-700;
+  }
+  .badge-gray {
+    @apply badge bg-gray-100 text-gray-600;
+  }
+
+  /* --- Skeleton --- */
+  .skeleton {
+    @apply bg-gray-200 animate-pulse rounded;
+  }
+
+  /* --- Container --- */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* --- Gradient Text --- */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-800 via-primary-600 to-accent bg-clip-text text-transparent;
+  }
+
+  /* --- Page Transitions --- */
+  .page-enter {
+    @apply opacity-0 translate-y-4;
+  }
+  .page-enter-active {
+    @apply opacity-100 translate-y-0 transition-all duration-500;
+  }
+}
+
+/* ============================================================
+   Utility Layer
+   ============================================================ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .clip-path-wave {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  }
+  .clip-path-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  }
+}
+
+/* ============================================================
+   Swiper Overrides
+   ============================================================ */
+.swiper-pagination-bullet {
+  background: #4CAF50 !important;
+  opacity: 0.4 !important;
+  width: 8px !important;
+  height: 8px !important;
+  transition: all 0.3s ease !important;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  width: 24px !important;
+  border-radius: 100px !important;
+  background: #2E7D32 !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #2E7D32 !important;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+/* ============================================================
+   Page-specific Styles
+   ============================================================ */
+.hero-gradient-overlay {
+  background: linear-gradient(to bottom,
+    rgba(27, 67, 50, 0.85) 0%,
+    rgba(27, 67, 50, 0.4) 40%,
+    rgba(27, 67, 50, 0.7) 80%,
+    rgba(27, 67, 50, 0.95) 100%);
+}
+
+.leaf-particle {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  animation: leafFall linear infinite;
+}
+
+/* Loading Bar */
+.nprogress-bar {
+  background: #4CAF50 !important;
+  height: 3px !important;
+}
+
+/* 3D Canvas */
+.three-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Before/After Slider */
+.before-after-slider {
+  position: relative;
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+}
+
+/* Cursor Glow */
+.cursor-glow {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+  mix-blend-mode: normal;
+}
+
+/* Custom scrollbar for dark sections */
+.dark-scroll::-webkit-scrollbar-track {
+  background: #1a2e1c;
+}
+.dark-scroll::-webkit-scrollbar-thumb {
+  background: #2E7D32;
+}

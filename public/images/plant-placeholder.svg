@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Green plant illustration</title>
+  <desc id="desc">A stylized plant with green leaves in a terracotta pot.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8f5e9"/><stop offset="1" stop-color="#b7d7b9"/></linearGradient><linearGradient id="pot" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d98757"/><stop offset="1" stop-color="#a84f32"/></linearGradient></defs>
+  <rect width="1200" height="800" fill="url(#bg)"/><circle cx="1020" cy="120" r="90" fill="#f7dfa0" opacity=".65"/>
+  <path d="M510 580C390 470 390 265 565 175c45 170 5 330-55 405Z" fill="#287b4d"/><path d="M610 580c-25-180 65-340 245-380 0 175-93 324-245 380Z" fill="#3e9960"/><path d="M570 600c-120-55-205-175-180-310 145 60 207 185 180 310Z" fill="#58a969"/><path d="M625 600c20-140 105-235 230-255-5 135-95 236-230 255Z" fill="#236b43"/>
+  <path d="M520 575h150l-25 150H545Z" fill="url(#pot)"/><path d="M500 565h190l-20 55H520Z" fill="#e59a69"/><path d="M600 570V270" stroke="#205b38" stroke-width="18" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,43 @@
+{
+  "cookies": [
+    {
+      "name": "refreshToken",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGYyNmY4N2NkMTlmNmZmN2JmMGI1YSIsInR5cGUiOiJyZWZyZXNoIiwianRpIjoiNTAyMTkwZWZhMDQxZDY4N2VjZTYyNzg4ZmM3N2RhMGMiLCJpYXQiOjE3ODM4MzU2NzUsImV4cCI6MTc4NDQ0MDQ3NX0.pdbWy2mJw2FrU02nXEMjFRF3P7Tze2p3SA7VRSAUR0I",
+      "domain": "localhost",
+      "path": "/api/v1/auth/refresh-token",
+      "expires": 1784440475.245865,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "accessToken",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGYyNmY4N2NkMTlmNmZmN2JmMGI1YSIsInJvbGUiOiJhZG1pbiIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE3ODM4MzU2NzUsImV4cCI6MTc4MzgzNjU3NX0.zgBvc-wDiV1ViUiv8qRE7OSQWuFYHCer6fX2qkFaRek",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1783836575.245006,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "http://localhost:3000",
+      "localStorage": [
+        {
+          "name": "greenscape-auth",
+          "value": "{\"state\":{\"user\":{\"_id\":\"6a4f26f87cd19f6ff7bf0b5a\",\"firstName\":\"Admin\",\"lastName\":\"GreenScape\",\"fullName\":\"Admin GreenScape\",\"email\":\"admin@greenscapepro.com\",\"role\":\"admin\",\"avatar\":{\"url\":\"\",\"publicId\":\"\"},\"isEmailVerified\":true,\"isPhoneVerified\":false,\"loyaltyPoints\":0},\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGYyNmY4N2NkMTlmNmZmN2JmMGI1YSIsInJvbGUiOiJhZG1pbiIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE3ODM4MzU2NzUsImV4cCI6MTc4MzgzNjU3NX0.zgBvc-wDiV1ViUiv8qRE7OSQWuFYHCer6fX2qkFaRek\",\"isAuthenticated\":true},\"version\":0}"
+        },
+        {
+          "name": "refreshToken",
+          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGYyNmY4N2NkMTlmNmZmN2JmMGI1YSIsInR5cGUiOiJyZWZyZXNoIiwianRpIjoiNTAyMTkwZWZhMDQxZDY4N2VjZTYyNzg4ZmM3N2RhMGMiLCJpYXQiOjE3ODM4MzU2NzUsImV4cCI6MTc4NDQ0MDQ3NX0.pdbWy2mJw2FrU02nXEMjFRF3P7Tze2p3SA7VRSAUR0I\""
+        },
+        {
+          "name": "greenscape-ui",
+          "value": "{\"state\":{\"theme\":\"light\"},\"version\":0}"
+        }
+      ]
+    }
+  ]
+}
